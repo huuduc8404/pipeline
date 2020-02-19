@@ -1,0 +1,14 @@
+stages:
+- name: Builld
+  steps:
+  - publishImageConfig:
+      dockerfilePath: docker./Dockerfile
+      buildContext: .
+      tag: myweb:${CICD_EXECUTION_SEQUENCE}
+      registry: 127.0.0.1:34471
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
+timeout: 60
+notification: {}
