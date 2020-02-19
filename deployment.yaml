@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: web-service
+  
 spec:
   selector:
     app: web
@@ -15,6 +16,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-deployment
+  namespace: backend
   labels:
     app: web
 spec:
